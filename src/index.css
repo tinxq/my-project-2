@@ -1,22 +1,90 @@
-body {
+/* إعدادات عامة */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html {
   background-color: #18181b;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* الهيدر */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #1f1f23;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
-.header:ul{
-  text-decoration:none;
-  display :flex;
 
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* قائمة التنقل */
+.header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.header ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.header ul li a:hover {
+  color: #4CAF50;
+}
+
+/* أيقونة القائمة للجوال */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+  .header ul {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #1f1f23;
+    width: 100%;
+    display: none; /* يمكن التحكم بالعرض باستخدام JS */
+    text-align: center;
+  }
+
+  .header ul.show {
+    display: flex;
+  }
+
+  .header ul li {
+    margin: 15px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* محتوى الصفحة */
+main {
+  padding-top: 80px; /* لتجنب الهيدر الثابت */
+  text-align: center;
 }

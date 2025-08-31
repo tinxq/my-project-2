@@ -8,6 +8,27 @@ import {
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
+import { useState } from "react";
+import { IconButton } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+
+const [isOpen, setIsOpen] = useState(false);
+<>
+<IconButton
+  display={{ base: "block", md: "none" }} 
+  icon={<HamburgerIcon />}
+  onClick={() => setIsOpen(!isOpen)}
+  variant="outline"
+  colorScheme="pink"
+/>
+<HStack
+  spacing={8}
+  display={{ base: isOpen ? "flex" : "none", md: "flex" }}
+  flexDirection={{ base: "column", md: "row" }}
+>
+  <a href="#projects" onClick={handleClick("projects")}>Projects</a>
+  <a href="#contact" onClick={handleClick("contactme")}>Contact Me</a>
+</HStack></>
 
 const socials = [
   {

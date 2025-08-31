@@ -44,10 +44,11 @@ const ProjectsSection = () => {
         Featured Projects
       </Heading>
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(2,minmax(0,1fr))"
-        gridGap={8}
-      >
+  display="grid"
+  gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+  gridGap={8}
+>
+
         {projects.map((project) => (
           <Card
             key={project.title}
